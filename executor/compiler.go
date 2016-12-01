@@ -37,6 +37,8 @@ const (
 	ComplexSelect = "Complex-Select"
 	// AlterTable represents alter table statements.
 	AlterTable = "AlterTable"
+	// AlterUser represents modifies user statements.
+	AlterUser = "AlterUser"
 	// AnalyzeTable represents analyze table statements.
 	AnalyzeTable = "AnalyzeTable"
 	// Begin represents begin statements.
@@ -83,6 +85,8 @@ func statementLabel(node ast.StmtNode) string {
 	switch x := node.(type) {
 	case *ast.AlterTableStmt:
 		return AlterTable
+	case *ast.AlterUserStmt:
+		return AlterUser
 	case *ast.AnalyzeTableStmt:
 		return AnalyzeTable
 	case *ast.BeginStmt:
